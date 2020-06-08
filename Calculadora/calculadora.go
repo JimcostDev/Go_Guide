@@ -26,9 +26,16 @@ func main() {
 
 	/* el simbolo de _ permite compilar el programa aun que la variable no este en uso ,
 	ya que se debe compilar , exige que las variables si sean utilizadas */
-	operador1, _ := strconv.Atoi(valores[0])
-	operador2, _ := strconv.Atoi(valores[1])
+	operador1, err1 := strconv.Atoi(valores[0])
 
-	// mostrar resultado
-	fmt.Println(operador1 + operador2)
+	operador2, err2 := strconv.Atoi(valores[1])
+
+	if err1 != nil && err2 != nil {
+		// mostrar resultado
+		fmt.Println(operador1 + operador2)
+	} else {
+		fmt.Println("Op1 error : ", err1)
+		fmt.Println("Op2 error : ", err2)
+	}
+
 }
